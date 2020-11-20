@@ -20,7 +20,7 @@ export const ContextMessage = (props: ContextMessageProps) => {
                 setShowMessage(true);
 
                 if (!isShowingMessage) {
-                    const timeoutId = window.setTimeout(
+                    window.setTimeout(
                         () => {
                             setShowMessage(false);
 
@@ -32,11 +32,7 @@ export const ContextMessage = (props: ContextMessageProps) => {
                             )
                         },
                         3000,
-                    )
-    
-                    return () => {
-                        window.clearTimeout(timeoutId);
-                    }
+                    );
                 }
             }
         },
