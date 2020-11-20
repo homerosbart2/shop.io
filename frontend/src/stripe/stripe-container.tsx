@@ -12,6 +12,7 @@ interface StripeContainerProps {
     shown: boolean;
     onCancelButtonClick: () => void;
     onPaySuccess: () => void;
+    onFail: (message: string) => void;
 }
 
 export const StripeContainer = (props: StripeContainerProps) => {
@@ -22,6 +23,7 @@ export const StripeContainer = (props: StripeContainerProps) => {
                 shown={props.shown}
                 onCancelButtonClick={props.onCancelButtonClick}
                 onPaySuccess={props.onPaySuccess}
+                onFail={props.onFail}
             />
         </Elements>
     );

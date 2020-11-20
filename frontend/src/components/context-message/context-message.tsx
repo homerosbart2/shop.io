@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
+import parse from 'html-react-parser';
 import './context-message.scss';
 
 interface ContextMessageProps {
@@ -44,7 +45,7 @@ export const ContextMessage = (props: ContextMessageProps) => {
 
     return (
         <div className={`context-message ${showMessage ? 'shown' : ''}`}>
-            {message || ''}
+            {parse(message || '')}
         </div>
     );
 }

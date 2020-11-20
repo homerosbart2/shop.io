@@ -81,6 +81,9 @@ export const Shop = observer(() => {
             if (storedShoppingCart) {
                 setShoppingCart(JSON.parse(storedShoppingCart));
             }
+            if (store.userStore.user) {
+                setContextMessage(`Hello, ${store.userStore.user.name}`);
+            }
         } else {
             handleFail('Your email is not registered, please sign up.')
         }
@@ -106,6 +109,8 @@ export const Shop = observer(() => {
 
             if (!canAdd) {
                 handleFail('Not enough stock.')
+            } else {
+                setContextMessage(`The product <b>${product.name}</b> was added.`);
             }
 
             if (user) {
@@ -260,6 +265,7 @@ export const Shop = observer(() => {
                                 shown={showStripeContainer}
                                 onCancelButtonClick={handleCancelButtonClick}
                                 onPaySuccess={handlePaySuccess}
+                                onFail={handleFail}
                             />
                             <div className="amount">
                                 <div className="text">

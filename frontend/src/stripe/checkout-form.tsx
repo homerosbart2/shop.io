@@ -13,6 +13,7 @@ interface CheckoutFormProps {
     shown: boolean;
     onCancelButtonClick: () => void;
     onPaySuccess: () => void;
+    onFail: (message: string) => void;
 }
 
 export const CheckoutForm = observer((props: CheckoutFormProps) => {
@@ -38,6 +39,8 @@ export const CheckoutForm = observer((props: CheckoutFormProps) => {
                 if (paymentMethod) {
                     if (await store.orderStore.pay(paymentMethod.id, props.amount)) {
                         props.onPaySuccess();
+                    } else {
+                        props.onFail('There was an error with your payment method.');
                     }
                 }
             } else {
