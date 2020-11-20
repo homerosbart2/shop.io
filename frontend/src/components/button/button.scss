@@ -1,0 +1,24 @@
+.button {
+    cursor: pointer;
+    height: 33px;
+    padding: 0 16px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+
+    &.shown {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &.green {
+        background: rgb(187, 255, 187);
+    }
+
+    &.orange {
+        background: rgb(255, 218, 187);
+    }
+}

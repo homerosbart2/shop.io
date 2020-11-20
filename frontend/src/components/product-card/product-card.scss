@@ -1,0 +1,79 @@
+.product {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .card {
+        width: calc(100% - 32px);
+        height: calc(200px - 32px);
+        border: 1px solid rgb(200, 200, 200);
+        border-radius: 4px;
+        display: grid;
+        grid-template-rows: 5fr 2fr;
+        padding: 16px;
+        margin-bottom: 12px;
+        position: relative;
+
+        .image {
+            width: 100%;
+            border-radius: 4px;
+        }
+
+        .name {
+            font-size: 16px;
+            justify-self: center;
+            align-self: center;
+            font-weight: bold;
+        }
+
+        .quantity {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            font-size: 12px;
+            background: rgb(187, 255, 187);
+            padding: 2px 6px;
+            border-radius: 10px;
+            color: rgb(49, 138, 49);
+            font-weight: bold;
+            pointer-events: none;
+            transition: 0.3s ease;
+        }
+
+        .add-to-cart {
+            cursor: pointer;
+            position: absolute;
+            justify-self: center;
+            top: calc(2 * (100% / 7));
+            background: rgb(187, 255, 187);
+            color: rgb(49, 138, 49);
+            padding: 4px 12px;
+            border-radius: 4px;
+            box-shadow: 0 0 4px rgba(0,0,0,0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s ease;
+
+            svg {
+                margin-right: 4px;
+            }
+        }
+
+        &:hover {
+            .add-to-cart {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+
+    .price {
+        font-weight: bold;
+        background: rgb(200, 200, 200);
+        color: rgb(88, 88, 88);
+        padding: 4px 12px;
+        border-radius: 4px;
+        font-size: 12px;
+    }
+}

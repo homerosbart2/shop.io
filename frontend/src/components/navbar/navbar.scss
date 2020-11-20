@@ -1,0 +1,71 @@
+.navbar {
+    display: flex;
+    padding: 16px;
+    border-bottom: 1px solid rgb(200, 200, 200);
+    height: max-content;
+    width: calc(100% - 32px);
+    justify-content: space-between;
+
+    .brand {
+        font-weight: bold;
+        font-size: 26px;
+        margin-left: 24px;
+
+        .secondary {
+            font-size: 17px;
+        }
+    }
+
+    .actions {
+        display: flex;
+
+        .action {
+            cursor: pointer;
+            display: flex;
+            height: 100%;
+            align-items: center;
+            padding: 0 24px;
+            font-size: 16px;
+            position: relative;
+            justify-content: center;
+
+            .counter {
+                position: absolute;
+                left: calc(100% - 30px);
+                top: 0px;
+                font-size: 12px;
+                background: rgb(255, 187, 187);
+                padding: 2px 6px;
+                border-radius: 10px;
+                color: rgb(185, 33, 33);
+                font-weight: bold;
+                pointer-events: none;
+                opacity: 0;
+                transform: scale(0.5);
+                transition: 0.3s ease;
+
+                &.shown {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+            }
+
+            .selected-indicator {
+                position: absolute;
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background: rgb(255, 187, 187);
+                bottom: -6px;
+                opacity: 0;
+                transition: 0.3s ease;
+            }
+
+            &.selected {
+                .selected-indicator {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
